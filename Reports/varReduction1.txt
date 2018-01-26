@@ -1,0 +1,2 @@
+Deleted columns in this step :0
+Remaininng columns : 21
