@@ -4,7 +4,7 @@ import numpy as np
 import csv
 from six.moves import cPickle as pickle
 
-path = r'../DataSet/voice'
+path = r'../DataSet/Clean DataSet/voice'
 
 dataset = []
 label = []
