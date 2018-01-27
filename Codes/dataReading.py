@@ -4,7 +4,7 @@ import numpy as np
 import csv
 from six.moves import cPickle as pickle
 
-path = r'../DataSet/CleanDataSet/voice'
+path = r'../DataSet/voice'
 
 dataset = []
 label = []
@@ -22,7 +22,7 @@ with open( path + ".csv", 'r') as p1:
         label.append(rows[-1])
     
 
-path = r'../DataSet/CleanDataSet/dataset_voice.pickle'
+path = r'../DataSet/dataset_voice.pickle'
 
 dataset = np.array(dataset).astype(float)
 label = np.array(label).astype(str)
