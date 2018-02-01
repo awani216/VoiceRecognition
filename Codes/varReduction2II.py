@@ -7,17 +7,16 @@ import random
 
 with open(r"../data_reduction_3.pickle", 'rb') as fl:
     data = pickle.load(fl)
-    train_dataset = data['train_dataset']
-    train_labels = data['train_labels']
-    test_dataset = data['test_dataset']
+    dataset = data['dataset']
+    labels = data['labels']
     attributes =  data['attributes']
-train_labels = np.array(train_labels, dtype=int)
+labels = np.array(labels, dtype=int)
 clf = RandomForestClassifier()
 #print(train_dataset.shape, train_labels.shape)
-ran = random.sample(range(len(train_dataset)), 5000)
+ran = random.sample(range(len(dataset)), 5000)
 ran.sort()
 print(ran)
-clf.fit(train_dataset[ran], train_labels[ran])
+clf.fit(dataset[ran], labels[ran])
 importance = clf.feature_importances_
 res = []
 for i in range(len(importance)):
@@ -40,10 +39,10 @@ for i in range(len(arr)):
 for i in range(len(arr)):
     print(deleted[i], attributes[arr[i]-i])
     attributes.pop(arr[i] - i)
-    train_dataset = np.delete(train_dataset, arr[i]-i, axis=1)
-    test_dataset = np.delete(test_dataset, arr[i]-i, axis=1)   
+    dataset = np.delete(dataset, arr[i]-i, axis=1)
+    dataset = np.delete(dataset, arr[i]-i, axis=1)   
 
-print(len(train_dataset[0]))
+print(len(dataset[0]))
 print(attributes)
 
 print(count)
